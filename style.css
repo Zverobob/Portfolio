@@ -17,6 +17,13 @@ body {
   padding: 0 16px;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #222222;
+  border: 7px solid;
+}
 .page-header {
   margin: 0 0 160px;
   padding: 32px 0 32px;
