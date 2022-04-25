@@ -2,7 +2,7 @@ body {
   margin: 0;
   min-width: 960px;
   font-family: "Montserrat","Vollkorn SC", "Helvetica", "Arial", "Vollkorn SC", serif, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 32px;
   color: #222222;
   background-color: #f2f4f6;
@@ -265,4 +265,13 @@ body {
   padding: 60px 60px 60px 60px;
   background-image: url("img/GitHub-Mark-Light-120px-plus.svg");
   background-size: 50%;
+}
+
+.about {
+  padding-left: 20px;
+}
+
+.pepe{
+  list-style-image: url(img/list-pepe.svg);
+  margin-left: 20px;
 }
