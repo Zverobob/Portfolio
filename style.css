@@ -281,3 +281,7 @@ body {
   list-style-image: url(img/list-pepe.svg);
   margin-left: 20px;
 }
+
+.no_dot{
+  list-style-type:  none;
+}
