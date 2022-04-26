@@ -224,13 +224,19 @@ body {
 
 .button {
   padding: 6px 20px;
+  margin-bottom: 20px;
   display: inline-block;
   vertical-align: baseline;
   text-decoration: none;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #288be6;
   color: #ffffff;
+}
+
+.button:hover{
+  background-color: #00417d;
+
 }
 
 .page-footer {
