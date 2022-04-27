@@ -1,9 +1,9 @@
 body {
   margin: 0;
-  min-width: 960px;
+  min-width: 320px;
   font-family: "Montserrat","Vollkorn SC", "Helvetica", "Arial", "Vollkorn SC", serif, sans-serif;
   font-size: 18px;
-  line-height: 32px;
+  line-height: 1.5;
   color: #222222;
   background-color: #f2f4f6;
   background-image: url("img/hero-bg.jpg");
@@ -29,10 +29,13 @@ body {
   padding: 32px 0 32px;
 }
 
-.page-header .container,
-.page-footer .container {
+.page-header .container {
   max-width: 1408px;
   text-align: right;
+}
+.page-footer .container {
+  max-width: 1408px;
+  text-align: center;
 }
 
 .page-header a {
@@ -66,14 +69,14 @@ body {
   margin: 0 0 16px;
   font-family: "Vollkorn SC", "Old Standard TT", "Times", "Times New Roman", serif;
   font-size: 88px;
-  line-height: 96px;
+  line-height: 1.3;
   font-weight: 400;
 }
 
 .hero-image p {
   margin: 0;
   font-size: 32px;
-  line-height: 48px;
+  line-height: 1.3;
 }
 
 .intro {
@@ -84,7 +87,7 @@ body {
   margin: 0 0 56px;
   font-family: "Vollkorn SC", "Old Standard TT", "Times", "Times New Roman", serif;
   font-size: 64px;
-  line-height: 80px;
+  line-height: 1.3;
   font-weight: 400;
   text-align: center;
 }
@@ -98,7 +101,7 @@ body {
 .portfolio h3 {
   margin: 0 0 12px;
   font-size: 28px;
-  line-height: 40px;
+  line-height: 1.3;
   font-weight: 500;
 }
 
@@ -173,7 +176,7 @@ body {
 .text_lvl{
   position:relative;
   text-align: center;
-  top: -31px;
+  top: -33px;
   color:#6dec19;
   font-size: 24px;
 }
@@ -246,8 +249,7 @@ body {
 }
 
 .page-footer a {
-  margin-right: 10px;
-  line-height: 50px;
+  margin-right: 10px auto;
   color: inherit;
   text-decoration: none;
   background-repeat: no-repeat;
@@ -256,20 +258,20 @@ body {
 
 
 .footer-discord {
-  padding: 60px 60px 60px 60px;
-  background-image: url("img/Discord-Logo-White.svg");
+  padding: 50px ;
+  background-image: url("img/icon-discord.svg");
   background-size: 50%;
 }
 
 .footer-vk {
-  padding: 60px 60px 60px 60px;
-  background-image: url("img/VK_Monochrome_Compact_Logo.svg");
+  padding: 50px;
+  background-image: url("img/icon-vk.svg");
   background-size: 50%;
 }
 
 .footer-github {
-  padding: 60px 60px 60px 60px;
-  background-image: url("img/GitHub-Mark-Light-120px-plus.svg");
+  padding: 50px;
+  background-image: url("img/icon-git.svg");
   background-size: 50%;
 }
 
@@ -284,4 +286,51 @@ body {
 
 .no_dot{
   list-style-type:  none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+
+  body{
+    background-size: auto 20%;
+  }
+
+  .heading{
+    font-size: 40px;
+  }
+  
+  .subheading {
+    margin: 0 0 36px;
+    font-size: 24px;
+  }
+
+  .page-header .container {
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-bottom: 400px;
+  }
+  
+  .hero-image p {
+    font-size: 22px;
+  }
+
+  .page-header {
+    margin: 0 0 160px;
+    font-size: 20px;
+  }
+
+  .page-header a {
+    white-space: nowrap;
+    margin: 0 0 0 0;
+  }
+
+  .skill-eng a{
+    font-size: 16px;
+  }
 }
