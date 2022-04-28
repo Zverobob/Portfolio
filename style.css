@@ -39,7 +39,7 @@ body {
 }
 
 .page-header a {
-  margin-left: 56px;
+  margin-left: 25px;
   color: #288be6;
   text-decoration: none;
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@ body {
 }
 
 .header-phone {
-  padding-left: 25px;
+  padding-left:25px;
   background-image: url("img/icon-phone-header.svg");
 }
 
@@ -293,6 +293,10 @@ img{
   height: auto;
 }
 
+.project{
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 768px) {
 
   body{
@@ -327,7 +331,10 @@ img{
 
   .page-header a {
     white-space: nowrap;
-    margin: 0 0 0 0;
+    margin: 0;
+  }
+  .page-header a + a{
+    margin: 0 25px;
   }
 
   .skill-eng a{
