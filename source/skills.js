@@ -45,7 +45,7 @@ let skillsData = {
 const sList = document.querySelector('.skills-list');
 
 for (const key in skillsData) {
-    let hd = document.createElement('h3');
+    const hd = document.createElement('h3');
     hd.innerHTML = 'Навыки <strong>' + key + ':</strong>';
     sList.appendChild(hd);
     
