@@ -234,12 +234,37 @@ body {
   text-transform: uppercase;
   border-radius: 8px;
   background-color: #288be6;
+  transition: background 0.4s;
   color: #ffffff;
 }
 
 .button:hover{
   background-color: #00417d;
+  transition: background 0.4s;
+}
 
+.buttonSort {
+  margin: 0 10px;
+  padding: 6px 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: baseline;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background-color: #288be6;
+  transition: background 0.4s;
+  color: #ffffff;
+}
+.buttonSort + .buttonSort{
+  margin-right: 0px;
+}
+.buttonSort:hover{
+  background-color: #00417d;
+  transition: background 0.4s;
+}
+.buttonSort:active{
+  background-color: black;
 }
 
 .page-footer {
@@ -295,6 +320,14 @@ img{
 
 .project{
   margin-bottom: 40px;
+}
+
+.skillTitle{
+  display: flex;
+  justify-content: flex-end;
+}
+.skillGroup{
+  flex-grow:1;
 }
 
 @media screen and (max-width: 768px) {
