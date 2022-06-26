@@ -93,6 +93,11 @@ const skills = {
 
     ascend: 1,
     
+    handler: function (btn) {
+        btn.preventDefault();
+        skills.sortSkills( btn.target.dataset.section, btn.target.dataset.subset, 1 );
+    },
+
     sortSkills: function(btnSect, btnSubs, start) 
     {   
         if (start != 0 ){
@@ -105,7 +110,7 @@ const skills = {
         }
         buttons = document.querySelectorAll('.buttonSort');
         buttons.forEach(btn => {
-            btn.addEventListener('click', handler);
+            btn.addEventListener('click', this.handler);
         });
     }
 }
@@ -114,11 +119,5 @@ const sList = document.querySelector('.skills-list');
 let buttons = document.querySelectorAll('.buttonSort'); 
 
 skills.showList();
-
-function handler (btn) {
-    btn.preventDefault();
-    skills.sortSkills( btn.target.dataset.section, btn.target.dataset.subset, 1 );
-}
-
 skills.sortSkills(0,0,0);
 
