@@ -93,28 +93,32 @@ const skills = {
 
     ascend: 1,
     
-    sortSkills: function(btnSect, btnSubs) 
+    sortSkills: function(btnSect, btnSubs, start) 
     {   
-        this.ascend = -this.ascend; 
-        this.data[btnSect] = this.data[btnSect].sort((a, b) => 
-        {
-            return (a[btnSubs] < b[btnSubs]) ? this.ascend : -this.ascend;            
-        }); 
-        this.showList();
+        if (start != 0 ){
+            this.ascend = -this.ascend; 
+            this.data[btnSect] = this.data[btnSect].sort((a, b) => 
+            {
+                return (a[btnSubs] < b[btnSubs]) ? this.ascend : -this.ascend;            
+            }); 
+            this.showList();
+        }
+        buttons = document.querySelectorAll('.buttonSort');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', handler);
+        });
     }
 }
 
 const sList = document.querySelector('.skills-list');
+let buttons = document.querySelectorAll('.buttonSort'); 
 
 skills.showList();
 
 function handler (btn) {
     btn.preventDefault();
-    skills.sortSkills( btn.target.dataset.section, btn.target.dataset.subset );
+    skills.sortSkills( btn.target.dataset.section, btn.target.dataset.subset, 1 );
 }
 
-const buttons = document.querySelectorAll('.buttonSort'); 
+skills.sortSkills(0,0,0);
 
-buttons.forEach(btn => {
-    addEventListener('click', handler);
-});
