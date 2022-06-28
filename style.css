@@ -255,6 +255,7 @@ body {
   background-color: #288be6;
   transition: background 0.4s;
   color: #ffffff;
+  align-self: center;
 }
 .buttonSort + .buttonSort{
   margin-right: 0px;
@@ -372,5 +373,14 @@ img{
 
   .skill-eng a{
     font-size: 16px;
+  }
+  .skillTitle{
+    flex-direction: column;
+  }
+  .buttonSort{
+    flex-grow: 10%;
+    margin: 0px 0px 10px 0px;
+    flex: 1 1 auto;
+    align-self: stretch;
   }
 }
