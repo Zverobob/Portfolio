@@ -43,51 +43,61 @@ const skills = {
         ]
     },
 
-    showList: function() {
-        sList.innerHTML = '';
+    createBtns: function() {
+        const sList = document.querySelectorAll('.skills-list')[1];
         for (const key in this.data) {
-            const section = document.createElement('div');
-            section.classList.add('skillTitle');
+            const btnSect = document.createElement('div');
+            btnSect.classList.add('skillTitle');
 
             const hd = document.createElement('h3');
             hd.innerHTML = 'Навыки <strong>' + key + ':</strong>';
             hd.classList.add('skillGroup');
-            section.append(hd);
+            btnSect.append(hd);
             
             //Adding sorting buttons to each section
-            const buttName = document.createElement('button');
-            buttName.textContent = 'Сортировать по имени';
-            buttName.classList.add('buttonSort');
-            buttName.setAttribute("data-section", key);
-            buttName.setAttribute("data-subset", "name");
-            section.append(buttName);
+            const btnName = document.createElement('button');
+            btnName.textContent = 'Сортировать по имени';
+            btnName.classList.add('buttonSort');
+            btnName.setAttribute("data-section", key);
+            btnName.setAttribute("data-subset", "name");
+            btnSect.append(btnName);
             
-            const buttSkill = document.createElement('button');
-            buttSkill.textContent = 'Сортировать по уровню';
-            buttSkill.classList.add('buttonSort');
-            buttSkill.setAttribute("data-section", key);
-            buttSkill.setAttribute("data-subset", "level");
-            section.append(buttSkill);
+            const btnSkill = document.createElement('button');
+            btnSkill.textContent = 'Сортировать по уровню';
+            btnSkill.classList.add('buttonSort');
+            btnSkill.setAttribute("data-section", key);
+            btnSkill.setAttribute("data-subset", "level");
+            btnSect.append(btnSkill);
 
-            sList.appendChild(section);
-            
+            const skillSpace = document.createElement('section');
+            skillSpace.setAttribute("data-subsection", key);
+            sList.appendChild(btnSect);
+            sList.appendChild(skillSpace);
+        }
+    },
+
+    addSkills: function(){
+        const sSpace = document.querySelectorAll('[data-subsection]');
+        for( let i = 0; i < sSpace.length; i++){
+            sSpace[i].innerHTML = '';
+            const key = sSpace[i].dataset.subsection;
             this.data[key].forEach(({ name, level, style }) => {
-                  const dt = document.createElement('dt');    
-                  dt.classList.add('skill-'+style);          
-                  dt.textContent = name;
-                     
-                  const levelDiv = document.createElement('div');
-                  levelDiv.style.width = `${level}%`;
-                  levelDiv.textContent = `${level}%`;
-              
-                  const dd = document.createElement('dd');    
-                  dd.classList.add('level');
+                const dt = document.createElement('dt');    
+                dt.classList.add('skill-'+style);          
+                dt.textContent = name;
+                         
+                const levelDiv = document.createElement('div');
+                levelDiv.style.width = `${level}%`;
+                levelDiv.textContent = `${level}%`;
                   
-                  dd.appendChild(levelDiv);
-              
-                  sList.appendChild(dt);
-                  sList.appendChild(dd);
-              });
+                const dd = document.createElement('dd');    
+                dd.classList.add('level');
+                      
+                dd.appendChild(levelDiv);
+                  
+                sSpace[i].appendChild(dt);
+                sSpace[i].appendChild(dd);
+            });
         }
     },
 
@@ -98,26 +108,25 @@ const skills = {
         skills.sortSkills( btn.target.dataset.section, btn.target.dataset.subset, 1 );
     },
 
-    sortSkills: function(btnSect, btnSubs, start) 
-    {   
-        if (start != 0 ){
-            this.ascend = -this.ascend; 
-            this.data[btnSect] = this.data[btnSect].sort((a, b) => 
-            {
-                return (a[btnSubs] < b[btnSubs]) ? this.ascend : -this.ascend;            
-            }); 
-            this.showList();
-        }
-        buttons = document.querySelectorAll('.buttonSort');
+    sortSkills: function(btnSect, btnSubs, start){   
+        
+        this.ascend = -this.ascend; 
+        this.data[btnSect] = this.data[btnSect].sort((a, b) => 
+        {
+            return (a[btnSubs] < b[btnSubs]) ? this.ascend : -this.ascend;            
+        }); 
+        this.addSkills();
+    },
+
+    addHandlers: function(){
+        const buttons = document.querySelectorAll('.buttonSort'); 
         buttons.forEach(btn => {
             btn.addEventListener('click', this.handler);
         });
-    }
+    },
 }
 
-const sList = document.querySelector('.skills-list');
-let buttons = document.querySelectorAll('.buttonSort'); 
-
-skills.showList();
-skills.sortSkills(0,0,0);
+skills.createBtns();
+skills.addSkills();
+skills.addHandlers();
 
