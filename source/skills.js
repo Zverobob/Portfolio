@@ -1,46 +1,18 @@
 'use strict'
 
 const skills = {
-    data: {
-        backend: [
-            {
-                name: 'C++',
-                level: 70,
-                style: 'cpp'
-            },
-            {
-                name: 'Game Maker / GML',
-                level: 62,
-                style: 'gml'
-            },
-            {
-                name: 'C#',
-                level: 55,
-                style: 'csh'
-            },
-            {
-                name: 'Python',
-                level: 45,
-                style: 'py'
-            }
-        ],
-        frontend: [
-            {
-                name: 'HTML',
-                level: 40,
-                style: 'html'
-            },
-            {
-                name: 'CSS',
-                level: 30,
-                style: 'css'
-            },
-            {
-                name: 'JavaScript',
-                level: 10,
-                style: 'js'
-            }
-        ]
+    data: [],
+
+    getData: function() {
+        fetch('db/skills.json')
+        .then(data => data.json())
+        .then(json => {
+            this.data = json;
+            skills.createBtns();
+            skills.addSkills();
+            skills.addHandlers();
+        })
+        .catch(() => console.error("Данных для вас, увы, нет сэр. Но есть овсянка!"))
     },
 
     createBtns: function() {
@@ -126,7 +98,5 @@ const skills = {
     },
 }
 
-skills.createBtns();
-skills.addSkills();
-skills.addHandlers();
+skills.getData();
 
