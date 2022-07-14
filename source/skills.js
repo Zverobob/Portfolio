@@ -11,6 +11,7 @@ const skills = {
             skills.createBtns();
             skills.addSkills();
             skills.addHandlers();
+            skills.updText("English");
         })
         .catch(() => console.error("Данных для вас, увы, нет сэр. Но есть овсянка!"))
     },
